@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instructor Management</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css') }}">
+</head>
+<body>
+  <div class="sidebar">
+    <h4 class="text-center text-white">Username</h4>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="schedule.html">Scheduling</a>
+    <a href="course.html">Courses</a>
+    <a href="instructor.html">Instructors</a>
+    <a href="#">Settings</a>
+  </div>
+  <div class="main-content container-fluid">
+    <h2>Instructor Management</h2>
+    <!-- Add Instructor Section -->
+    <div class="add-instructor">
+      <h3>Add Instructor</h3>
+      <form action="#" method="post">
+        <div class="form-group">
+          <label for="instructorName">Instructor Name</label>
+          <input type="text" class="form-control" id="instructorName" name="instructorName" required>
+        </div>
+        <div class="form-group">
+          <label for="contactNo">Contact No</label>
+          <input type="text" class="form-control" id="contactNo" name="contactNo" required pattern="[0-9]{10}">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <textarea class="form-control" id="address" name="address" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="education">Education</label>
+          <input type="text" class="form-control" id="education" name="education" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Instructor</button>
+      </form>
+    </div>
+    <!-- Display Instructor Section -->
+    <div class="display-instructor mt-4">
+      <h3>Display Instructors</h3>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Instructor Name</th>
+              <th>Contact No</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Education</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Instructor 1</td>
+              <td>1234567890</td>
+              <td>instructor1@example.com</td>
+              <td>123456</td>
+              <td>Address 1</td>
+              <td>Education 1</td>
+              <td><button class="btn btn-warning">Edit</button></td>
+              <td><button class="btn btn-danger">Delete</button></td>
+            </tr>
+            <!-- More rows as needed -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
