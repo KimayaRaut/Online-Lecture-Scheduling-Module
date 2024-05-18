@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from v1.routes import router
 from config import config
 from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 import mongoengine
 
 def create_app():
@@ -12,7 +13,15 @@ def create_app():
     # Mounting static files
     app.mount("/static", StaticFiles(directory="static"), name="static")
 
-    mongoengine.connect(db=config.DATABASE_NAME)
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["*"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+
+    mongoengine.connect(db=config.DATABASE_NAME,host=config.DATABASE_HOST)
     
     return app
 

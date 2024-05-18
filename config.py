@@ -1,3 +1,5 @@
+import os
+
 class Config:
     def __init__(self, **args) -> None:
         self.username= args["username"]
@@ -14,7 +16,7 @@ config = Config(
     password="admin",
 
     DATABASE_NAME="online_lecture_scheduling",
-    DATABASE_HOST="",
+    DATABASE_HOST=os.getenv("DATABASE_HOST"),
     DATABASE_USERNAME="",
     DATABASE_PASSWORD="",
 )
