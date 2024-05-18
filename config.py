@@ -11,7 +11,7 @@ class Config:
         
 config = Config(
     username="admin",
-    password="admin@123",
+    password="admin",
 
     DATABASE_NAME="online_lecture_scheduling",
     DATABASE_HOST="",
