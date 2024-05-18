@@ -22,6 +22,7 @@ def create_app():
     )
 
     mongoengine.connect(host="mongodb+srv://root:root@cluster0.gmqywdz.mongodb.net/")
+    # mongoengine.connect(db=config.DATABASE_NAME,host=config.DATABASE_HOST)
     
     return app
 
