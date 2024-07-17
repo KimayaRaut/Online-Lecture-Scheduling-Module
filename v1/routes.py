@@ -30,12 +30,29 @@ async def course(request: Request):
 async def instructor(request: Request):
     return templates.TemplateResponse("instructor.html", {"request": request})
 
+@router.post("/register")
+async def endpoint_to_register_user(
+    data:userRegister,
+):
+    user_data = {
+        "firstName":data.firstName,
+        "lastName":data.lastName,
+        "email":data.email,
+        "password":data.password
+    }
+    response = apiOperationsHandler.register_user(user_data)
+    if response:
+        return {"details": response}
+    else:
+        raise HTTPException(status_code=404, detail="not found")
+
 @router.post("/login")
 async def endpoint_to_login(
     data:LoginDetails
 ):
-    print(data)
-    if data.username == config.username and data.password == config.password:
+    # print(data)
+    response = apiOperationsHandler.login_user(data)
+    if response:
         return {"details": "success"}
     else:
         raise HTTPException(status_code=403, detail=" Unauthorized access")

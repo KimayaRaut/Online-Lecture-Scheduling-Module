@@ -15,9 +15,9 @@ document.getElementById("login-form").addEventListener("submit", function (event
     }).then(response => {
         // Handle response
         console.log(response);
-        if (response.status == 200){
+        if (response.status == 200) {
             window.location.href = '/dashboard_page';
-        }else{
+        } else {
             console.log("Error: Check credentials again")
             alert('Error: Check credentials again');
         }

@@ -5,6 +5,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 import mongoengine
 
+
 def create_app():
     app = FastAPI()
 
@@ -20,9 +21,9 @@ def create_app():
         allow_methods=["*"],
         allow_headers=["*"],
     )
-
-    mongoengine.connect(host="mongodb+srv://root:root@cluster0.gmqywdz.mongodb.net/")
-    # mongoengine.connect(db=config.DATABASE_NAME,host=config.DATABASE_HOST)
+    DATABASE_HOST = config.DATABASE_HOST
+    # print("DATABASE_HOST",DATABASE_HOST)
+    mongoengine.connect(host=DATABASE_HOST)
     
     return app
 

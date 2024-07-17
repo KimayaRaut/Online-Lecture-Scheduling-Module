@@ -3,6 +3,7 @@
 ## API Endpoints
 
 ### Authentication
+- **POST** `/register`: Register user
 - **POST** `/login`: Authenticate user
 
 ### Courses

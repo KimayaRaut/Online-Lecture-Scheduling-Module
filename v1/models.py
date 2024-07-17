@@ -1,7 +1,42 @@
 from mongoengine import Document,StringField
-
 from mongoengine import Document, StringField, ListField, ReferenceField, DateTimeField
+from mongoengine import signals
+from passlib.context import CryptContext
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
+class User(Document):
+    firstName = StringField(required=True)
+    lastName = StringField(required=True)
+    email = StringField(required=True)
+    password = StringField(required=True)
+    profilePicture = StringField()
+    refreshToken = StringField()
+
+    def payload(self):
+        return{
+            "firstName":self.firstName,
+            "lastName":self.lastName,
+            "email":self.email,
+            "profilePicture":self.profilePicture,
+        }
+    
+    @classmethod
+    def pre_save(cls, sender, document, **kwargs):
+        # print(document.password)
+        document.password = pwd_context.hash(document.password)
+
+    def isPasswordCorrect(self,plain_password):
+        passwordFlag = pwd_context.verify(plain_password, self.password)
+        # print("isPasswordCorrect",passwordFlag)
+        return passwordFlag
+
+    def generateAccessToken(self):
+        return {}
+
+    def generateRefreshToken(self):
+        return {}  
+    
+signals.pre_save.connect(User.pre_save, sender=User)
 
 class Instructor(Document):
     name = StringField(required=True)
@@ -62,3 +97,8 @@ class Schedule(Document):
         return{
             "instructor_name":self.instructor
         }
+    
+ 
+
+
+

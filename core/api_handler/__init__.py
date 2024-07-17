@@ -25,6 +25,28 @@ class APIOperations:
             print(e)
             return None
     
+    def register_user(self,data: dict):
+        try:
+            # print(data)
+            user = User(**data)
+            user.save()
+            return user.payload()
+        except Exception as e:
+            print(e)
+            return None
+        
+    def login_user(self,data: dict):
+        try:
+            # print(data)
+            user = User.objects.get(email = data.username)
+            if user.isPasswordCorrect(data.password):
+                return user.payload()
+            else:
+                return None
+        except Exception as e:
+            print(e)
+            return None
+
     def save_course(self,data: dict):
         try:
             print(data)
