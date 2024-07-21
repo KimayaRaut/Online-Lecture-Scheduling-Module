@@ -67,10 +67,29 @@ pip install -r requirements.txt
 python main.py
 ```
 ### Usage
-Admin Panel:
+Admin Panel
+Login:
 
-Open your web browser and navigate to http://127.0.0.1:8000/admin.
-Use the panel to view instructors, add courses, and assign lectures while managing scheduling conflicts.
+Open your web browser and navigate to http://127.0.0.1:8000/.
+Log in using your admin username and password.
+Manage Instructors:
+
+After logging in, you can view the list of all instructors.
+Random users can be added as instructors.
+
+Add Courses:
+
+Navigate to the course management section.
+Add new courses by providing details such as Name, Level, and Description.
+
+Assign Lectures:
+
+Go to the lecture scheduling section.
+Assign lectures to instructors on specific dates. The system will prevent assigning more than one lecture to an instructor on the same date.
+
+Manage Schedules:
+
+When adding a course, you can assign dates to the selected instructor. The system will ensure no other course can be scheduled for the instructor on the same date.
 
 ### File Structure
 ```plaintext
