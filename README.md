@@ -68,27 +68,23 @@ python main.py
 ```
 ### Usage
 Admin Panel
-Login:
-
+1. **Login:**
 Open your web browser and navigate to http://127.0.0.1:8000/.
 Log in using your admin username and password.
-Manage Instructors:
 
+2. **Manage Instructors:**
 After logging in, you can view the list of all instructors.
 Random users can be added as instructors.
 
-Add Courses:
-
+3. **Add Courses:**
 Navigate to the course management section.
 Add new courses by providing details such as Name, Level, and Description.
 
-Assign Lectures:
-
+4. **Assign Lectures:**
 Go to the lecture scheduling section.
 Assign lectures to instructors on specific dates. The system will prevent assigning more than one lecture to an instructor on the same date.
 
-Manage Schedules:
-
+5. **Manage Schedules:**
 When adding a course, you can assign dates to the selected instructor. The system will ensure no other course can be scheduled for the instructor on the same date.
 
 ### File Structure
