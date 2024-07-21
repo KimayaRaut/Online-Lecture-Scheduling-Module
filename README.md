@@ -18,7 +18,7 @@ This project is designed to manage lecture scheduling through an admin panel. Th
 
 - **Backend:** FastAPI, MongoDB
 - **Frontend:** HTML, CSS, JavaScript
-- **Python Libraries:** FastAPI, Pydantic, Motor (for MongoDB)
+- **Python Libraries:** FastAPI, Pydantic, Mongoengine (for MongoDB)
 - **Database:** MongoDB
 
 ## Installation
